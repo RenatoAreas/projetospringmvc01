@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.cotiinformatica.repositories.FuncionarioRepository;
+import br.com.cotiinformatica.repositories.UsuarioRepository;
 
 @Configuration
 @ComponentScan(basePackages="br.com.cotiinformatica")
@@ -44,9 +45,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl(
-				"jdbc:mysql://localhost:3306/projetoSpringMVC01?useTimezone=true&serverTimezone=UTC&useSSL=false");
+				"jdbc:mysql://localhost:3307/projetoSpringMVC01?useTimezone=true&serverTimezone=UTC&useSSL=false");
 		dataSource.setUsername("root");
-		dataSource.setPassword("coti");
+		dataSource.setPassword("renato");
 		
 		return dataSource;
 	}
@@ -57,6 +58,10 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Bean
 	public FuncionarioRepository getFuncionarioRepository() {
 		return new FuncionarioRepository(getDataSource());
+	}
+	@Bean
+	public UsuarioRepository getUsuarioRepository(){
+		return new UsuarioRepository(getDataSource());
 	}
 	
 }

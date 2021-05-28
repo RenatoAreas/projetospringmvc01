@@ -39,7 +39,7 @@ input.error { /* formatar os campos com erro do jquery validate */
 						<h5 class="card-title">Acesso ao Sistema</h5>
 						<hr/>
 
-						<form id="formlogin">
+						<form id="formlogin" action="autenticarUsuario" method="post">
 
 							<label>Email de acesso:</label>
 							<form:input path="dto.email" name="email" id="email" type="text" class="form-control" />
